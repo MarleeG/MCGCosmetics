@@ -12,6 +12,7 @@ Palindrome - a word, phrase, or sequence that reads the same backward as forward
 * [Node.js](https://nodejs.org/en/docs/)
 * [Express](https://expressjs.com/)
 * [Bootstrap](https://getbootstrap.com/)
+* [Makeup-API](http://makeup-api.herokuapp.com/)
 
 ## Deployed App
 * [PalindromeChecker-App](https://palindromechecker-mg.herokuapp.com) - App
