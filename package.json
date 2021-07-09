@@ -26,8 +26,10 @@
   "dependencies": {
     "bootstrap": "^4.6.0",
     "concurrently": "^6.2.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
+    "node-fetch": "^2.6.1",
     "path": "^0.12.7",
     "react-bootstrap": "^1.6.1"
   },
