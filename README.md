@@ -1,4 +1,4 @@
-# Application Name - EXAMPLE
+# MCG Cosmetics
 
 This app checks if the string inputted is a palindrome. 
 
@@ -13,6 +13,7 @@ Palindrome - a word, phrase, or sequence that reads the same backward as forward
 * [Express](https://expressjs.com/)
 * [Bootstrap](https://getbootstrap.com/)
 * [Makeup-API](http://makeup-api.herokuapp.com/)
+* [Google Fonts](https://fonts.google.com)
 
 ## Deployed App
-* [PalindromeChecker-App](https://palindromechecker-mg.herokuapp.com) - App
+* [MCGCosmetics-App](https://mcg-cosmetics.herokuapp.com) - App
