@@ -1,20 +1,16 @@
-const data = {
-  getAllProductTypes: () => {
-    const PRODUCTS = [
-      "Blush",
-      "Bronzer",
-      "Eyebrow",
-      "Eyeliner",
-      "Eyeshadow",
-      "Foundation",
-      "Lip liner",
-      "Lipstick",
-      "Mascara",
-      "Nail Polish",
-    ];
+const axios = require("axios");
+const production = "https://mcg-cosmetics.herokuapp.com";
+const development = "http://localhost:5000";
 
-    return PRODUCTS
+const BASE_URL =
+  process.env.NODE_ENV === "production" ? production : development;
+
+const data = {
+  getAPIInfo: () => {
+    const URL = `${BASE_URL}/api/info`;
+    console.log(URL);
+    return axios.get(URL);
   }
-}
+};
 
 module.exports = data;
