@@ -10,7 +10,7 @@ const Header = () => {
         <h1 className="google-font-lobster">
           MCG COSMETICS
         </h1>
-        <p className="google-font-homemade-apple">Show your inner artist</p>
+        <p className="google-font-homemade-apple">Reveal your inner artist</p>
       </div>
     </div>
   );
