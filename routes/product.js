@@ -1,20 +1,18 @@
 const express = require("express");
 const router = express.Router();
-const fetch = require("node-fetch");
+
 const {
-  all: {
-    getAllBlushProducts,
-    getAllBronzerProducts,
-    getAllEyebrowProducts,
-    getAllEyelinerProducts,
-    getAllEyeshadowProducts,
-    getAllFoundationProducts,
-    getAllLiplinerProducts,
-    getAllLipstickProducts,
-    getAllNailPolishProducts,
-    getAllMascaraProducts,
-  },
-} = require("../controllers/all");
+  getAllBlushProducts,
+  getAllBronzerProducts,
+  getAllEyebrowProducts,
+  getAllEyelinerProducts,
+  getAllEyeshadowProducts,
+  getAllFoundationProducts,
+  getAllLiplinerProducts,
+  getAllLipstickProducts,
+  getAllNailPolishProducts,
+  getAllMascaraProducts
+} = require("../controllers/product");
 
 router
   .get("/blush", getAllBlushProducts)
