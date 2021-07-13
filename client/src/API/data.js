@@ -8,7 +8,6 @@ const BASE_URL =
 const data = {
   getAPIInfo: () => {
     const URL = `${BASE_URL}/api/info`;
-    console.log(URL);
     return axios.get(URL);
   }
 };

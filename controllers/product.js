@@ -1,92 +1,28 @@
 const fetch = require("node-fetch");
+const API_BASIC_INFO = require("./data");
+const { log } = console;
 
 const PRODUCT_TYPE_BASE_URL =
   "http://makeup-api.herokuapp.com/api/v1/products.json?product_type=";
 
-
-
-
 const makeupProductsAPI = {
-  getAllProductsByType: (req,res) => {
+  getAllProductsByType: (req, res) => {
     const PRODUCT_TYPE = req.params.product_type;
-    // const URL = `${PRODUCT_TYPE_BASE_URL}${PRODUCT_TYPE}`;
+    // log(PRODUCT_TYPE);
 
-    // switch(PRODUCT_TYPE){
+    const FOUND_PRODUCT_TYPE = API_BASIC_INFO.find(
+      (obj) => obj.api_product_type_value === PRODUCT_TYPE
+    );
 
-    // }
-  },
-  getAllBlushProducts: (req, res) => {
-    // blush
-    const URL = `${PRODUCT_TYPE_BASE_URL}blush`;
+    if (FOUND_PRODUCT_TYPE) {
+      const URL = `${PRODUCT_TYPE_BASE_URL}${PRODUCT_TYPE}`;
 
-    fetch(URL, { method: "GET" })
-      .then((res) => res.json())
-      .then((json) => res.json(json));
-  },
-
-  getAllBronzerProducts: (req, res) => {
-    // bronzer
-    const URL = `${PRODUCT_TYPE_BASE_URL}bronzer`;
-
-    fetch(URL, { method: "GET" })
-      .then((res) => res.json())
-      .then((json) => res.json(json));
-  },
-  getAllEyebrowProducts: (req, res) => {
-    // .eyebrow
-    const URL = `${PRODUCT_TYPE_BASE_URL}eyebrow`;
-    fetch(URL, { method: "GET" })
-      .then((res) => res.json())
-      .then((json) => res.json(json));
-  },
-  getAllEyelinerProducts: (req, res) => {
-    // eyeliner
-    const URL = `${PRODUCT_TYPE_BASE_URL}eyeliner`;
-    fetch(URL, { method: "GET" })
-      .then((res) => res.json())
-      .then((json) => res.json(json));
-  },
-  getAllEyeshadowProducts: (req, res) => {
-    // eyeshadow
-    const URL = `${PRODUCT_TYPE_BASE_URL}eyeshadow`;
-    fetch(URL, { method: "GET" })
-      .then((res) => res.json())
-      .then((json) => res.json(json));
-  },
-  getAllFoundationProducts: (req, res) => {
-    // foundation
-    const URL = `${PRODUCT_TYPE_BASE_URL}foundation`;
-    fetch(URL, { method: "GET" })
-      .then((res) => res.json())
-      .then((json) => res.json(json));
-  },
-  getAllLiplinerProducts: (req, res) => {
-    // lip liner
-    const URL = `${PRODUCT_TYPE_BASE_URL}lip_liner`;
-    fetch(URL, { method: "GET" })
-      .then((res) => res.json())
-      .then((json) => res.json(json));
-  },
-  getAllLipstickProducts: (req, res) => {
-    // lipstick
-    const URL = `${PRODUCT_TYPE_BASE_URL}lipstick`;
-    fetch(URL, { method: "GET" })
-      .then((res) => res.json())
-      .then((json) => res.json(json));
-  },
-  getAllMascaraProducts: (req, res) => {
-    // mascara
-    const URL = `${PRODUCT_TYPE_BASE_URL}mascara`;
-    fetch(URL, { method: "GET" })
-      .then((res) => res.json())
-      .then((json) => res.json(json));
-  },
-  getAllNailPolishProducts: (req, res) => {
-    // nail polish
-    const URL = `${PRODUCT_TYPE_BASE_URL}nail_polish`;
-    fetch(URL, { method: "GET" })
-      .then((res) => res.json())
-      .then((json) => res.json(json));
+      fetch(URL, { method: "GET" })
+        .then((res) => res.json())
+        .then((json) => res.json(json));
+    } else {
+      res.json({ error: "This product is not an option." });
+    }
   },
 };
 
