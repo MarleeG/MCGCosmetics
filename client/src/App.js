@@ -12,9 +12,8 @@ import "./App.css";
 const Home = lazy(() => import("./pages/Home/Home"));
 
 const App = () => {
-  const LoadingSpinner = () => {
-    return <div className="vertically-center">Loading..</div>;
-  };
+  const LoadingSpinner = <div className="vertically-center">Loading..</div>;
+
   return (
     <Router>
       <div className="App">

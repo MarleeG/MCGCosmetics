@@ -25,7 +25,7 @@ const Home = () => {
       <div className="products-list">
         {apiInfo.length > 0 &&
           apiInfo.map((info) => {
-            return <ProductCard name={info.name} key={info.id} />;
+            return <ProductCard name={info.name} key={info.id} src={info.img_src}/>;
           })}
       </div>
     </Fragment>
