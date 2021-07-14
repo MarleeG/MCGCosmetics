@@ -2,7 +2,7 @@ const apiBasicInfo = [
   {
     id: 0,
     name: "Blush",
-    api_product_type_value: "",
+    api_product_type_value: "blush",
     img_src: "https://img.icons8.com/ios/100/000000/cosmetic-brush.png",
   },
   {
