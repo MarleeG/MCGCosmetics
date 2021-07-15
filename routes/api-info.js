@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { getInfo } = require("../controllers/api-info");
+const { getInfo, getBrands } = require("../controllers/api-info");
 
-router.get("/info", getInfo);
+router.get("/info", getInfo).get("/brands", getBrands);
 
 module.exports = router;

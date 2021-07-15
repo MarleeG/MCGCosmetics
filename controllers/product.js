@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const API_BASIC_INFO = require("./data");
+const {apiBasicInfo} = require("./data");
 const { log } = console;
 
 const PRODUCT_TYPE_BASE_URL =
@@ -10,7 +10,7 @@ const makeupProductsAPI = {
     const PRODUCT_TYPE = req.params.product_type;
     // log(PRODUCT_TYPE);
 
-    const FOUND_PRODUCT_TYPE = API_BASIC_INFO.find(
+    const FOUND_PRODUCT_TYPE = apiBasicInfo.find(
       (obj) => obj.api_product_type_value === PRODUCT_TYPE
     );
 

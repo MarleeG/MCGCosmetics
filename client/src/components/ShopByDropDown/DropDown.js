@@ -1,5 +1,6 @@
 import React from 'react'
 
+// Shop products, brands
 const DropDown = () => {
   return (
     <div>
@@ -8,4 +9,4 @@ const DropDown = () => {
   )
 }
 
-export default DropDown
+export default DropDown;
