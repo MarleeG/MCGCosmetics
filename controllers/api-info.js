@@ -1,9 +1,12 @@
-const API_BASIC_INFO = require("./data");
+const { apiBasicInfo, brands } = require("./data");
 
 const info = {
   getInfo: (req, res) => {
-    res.json(API_BASIC_INFO);
+    res.json(apiBasicInfo);
   },
+  getBrands: (req, res) => {
+    res.json(brands)
+  }
 };
 
 module.exports = info;
