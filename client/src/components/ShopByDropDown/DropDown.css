@@ -1,0 +1,17 @@
+.dropdown__container{
+  margin: 15px;
+  /* position: relative; */
+
+}
+
+.dropdown__menu-wrapper{
+  /* position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0; */
+  /* display: flex; */
+  display: inline; 
+
+  justify-content: flex-start
+
+}
