@@ -1,6 +1,7 @@
 import React, { Fragment, useRef, useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import  Dropdown from "../../components/ShopByDropDown/DropDown";
 import { getAPIInfo, getBrands } from "../../API/data";
 
 import "./Home.css";
@@ -27,6 +28,7 @@ const Home = () => {
     <Fragment>
       <Header />
 
+      <Dropdown />
       <div className="products-list">
         {apiInfo.length > 0 &&
           apiInfo.map((info) => {
