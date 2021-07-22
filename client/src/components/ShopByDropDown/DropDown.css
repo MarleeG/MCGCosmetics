@@ -5,13 +5,13 @@
 }
 
 .dropdown__menu-wrapper{
-  /* position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0; */
-  /* display: flex; */
   display: inline; 
-
   justify-content: flex-start
 
+}
+
+@media screen and (max-width: 315px) {
+  .dropdown__container{
+    margin: 25px;
+  }
 }

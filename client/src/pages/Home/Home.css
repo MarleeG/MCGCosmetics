@@ -1,7 +1,19 @@
 div.products-list {
-  /* border: 2px solid black; */
+  /* border: 2px solid blue; */
   margin: 15px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+@media screen and (max-width: 319px) {
+  div.products-list {
+    margin: 0 25px;
+  }
+}
+
+@media screen and (max-width: 310px) {
+  div.products-list {
+    margin: 0 35px;
+  }
 }
