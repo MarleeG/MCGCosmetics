@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Limelight&family=Lobster&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@1,300&family=Philosopher&display=swap');
+
 /* font-family: 'Homemade Apple', cursive;
 
 font-family: 'Limelight', cursive;
@@ -45,4 +47,8 @@ code {
 
 .google-font-homemade-apple{
   font-family: 'Homemade Apple', cursive;
+}
+
+.google-font-philosopher{
+  font-family: 'Philosopher', sans-serif;
 }

@@ -70,7 +70,7 @@ const brands = [
   { id: uuidv4(), name: "Anna Sui", api_brand_value: "anna sui" },
   { id: uuidv4(), name: "Annabelle", api_brand_value: "annabelle" },
   { id: uuidv4(), name: "Benefit", api_brand_value: "benefit" },
-  { id: uuidv4(), name: "boosh", api_brand_value: "Boosh" },
+  { id: uuidv4(), name: "Boosh", api_brand_value: "Boosh" },
   { id: uuidv4(), name: "Burt's Bees", api_brand_value: "burt's bees" },
   {
     id: uuidv4(),
