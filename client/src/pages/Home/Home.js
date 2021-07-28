@@ -1,9 +1,13 @@
 import React, { Fragment, useRef, useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
-import ProductCard from "../../components/ProductCard/ProductCard";
+import HomePageCard from "../../components/HomePageCard/Card";
 import Dropdown from "../../components/ShopByDropDown/DropDown";
+import ButtonGroupComponent from "../../components/ButtonGroup/ButtonGroup";
 import { getAPIInfo, getBrands } from "../../API/data";
-import { getHomePageDropDownValues } from "../../general/data";
+import {
+  getHomePageDropDownValues,
+  getFirstCharacters,
+} from "../../general/data";
 
 import "./Home.css";
 
@@ -18,29 +22,50 @@ const Home = () => {
   const [dropDownVal, setDropDownVal] = useState("");
 
   const handleDropDownChange = (e) => {
-    log(e);
-
     const { value } = e;
 
     setDropDownVal(value);
   };
 
-  const isMounted = useRef(true);
-  useEffect(() => {
+  const showSpecificCards = (val) => {
+    // if (dropDownVal === PRODUCT_DROP_DOWN_VAL) {
+    //   // PRODUCTS
+    //   const filteredInfo = apiInfo.filter((obj) => obj.name[0] === val)
+    //   setAPIInfo(filteredInfo);
+    // } else {
+    //   // BRANDS
+    // }
+  };
+
+  const showAllCards = () => {
+    // setAPIInfo([]);
+    // setBrands([]);
+    // setDefaultValues();
+  }
+
+  const setDefaultValues = () => {
     if (apiInfo.length === 0) {
       getAPIInfo()
-        .then((res) => setAPIInfo(res.data))
+        .then((res) => {
+          // getFirstCharacters(res.data)
+          setAPIInfo(res.data);
+        })
         .catch((err) => console.log(err));
     }
 
     if (brands.length === 0) {
       getBrands()
         .then((res) => {
-          log(res.data)
-          setBrands(res.data)
+          log(res.data);
+          setBrands(res.data);
         })
         .catch((err) => console.log(err));
     }
+  };
+
+  const isMounted = useRef(true);
+  useEffect(() => {
+    setDefaultValues();
 
     if (dropDownVal === "") {
       // set initial drop down value to Products
@@ -52,7 +77,7 @@ const Home = () => {
     return () => {
       isMounted.current = false;
     };
-  }, [dropDownVal]);
+  }, [dropDownVal, brands, apiInfo]);
   return (
     <Fragment>
       <Header />
@@ -60,6 +85,16 @@ const Home = () => {
       <Dropdown
         handleDropDownChange={handleDropDownChange}
         dropdownOptions={getHomePageDropDownValues()}
+      />
+
+      <ButtonGroupComponent
+        showSpecificCards={showSpecificCards}
+        showAllCards={showAllCards}
+        buttonValues={
+          dropDownVal === PRODUCT_DROP_DOWN_VAL
+            ? getFirstCharacters(apiInfo)
+            : getFirstCharacters(brands)
+        }
       />
 
       <div className="products-list">
@@ -70,10 +105,10 @@ const Home = () => {
             const { name, id, img_src } = info;
 
             const CARD = (
-              <ProductCard key={id}>
+              <HomePageCard key={id}>
                 <img src={img_src} alt={name} className="product-card__icon" />{" "}
                 {name}
-              </ProductCard>
+              </HomePageCard>
             );
 
             return CARD;
@@ -83,13 +118,11 @@ const Home = () => {
           dropDownVal === BRAND_DROP_DOWN_VAL &&
           dropDownVal !== "" &&
           brands.map((brand) => {
-            const {id, name} = brand;
+            const { id, name } = brand;
 
-            const CARD = <ProductCard key={id}>
-              {name}
-            </ProductCard>
+            const CARD = <HomePageCard key={id}>{name}</HomePageCard>;
 
-            return CARD
+            return CARD;
           })}
       </div>
     </Fragment>
