@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./ProductCard.css";
+import "./Card.css";
 const ProductCard = (props) => {
   const { name, src } = props;
   return (
