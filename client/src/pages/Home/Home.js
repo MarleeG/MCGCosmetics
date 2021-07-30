@@ -18,37 +18,50 @@ const BRAND_DROP_DOWN_VAL = getHomePageDropDownValues()[1].value;
 
 const Home = () => {
   const [apiInfo, setAPIInfo] = useState([]);
+  const [originalAPIInfo, setOriginalAPIInfo] = useState([]);
   const [brands, setBrands] = useState([]);
+  const [orignalBrands, setOrignalBrands] = useState([]);
   const [dropDownVal, setDropDownVal] = useState("");
 
   const handleDropDownChange = (e) => {
     const { value } = e;
-
     setDropDownVal(value);
   };
 
   const showSpecificCards = (val) => {
-    // if (dropDownVal === PRODUCT_DROP_DOWN_VAL) {
-    //   // PRODUCTS
-    //   const filteredInfo = apiInfo.filter((obj) => obj.name[0] === val)
-    //   setAPIInfo(filteredInfo);
-    // } else {
-    //   // BRANDS
-    // }
+    // log(`Filtering: ${val}`);
+    const VAL_ALL = "ALL";
+    if (dropDownVal === PRODUCT_DROP_DOWN_VAL) {
+      // PRODUCTS
+
+      if (VAL_ALL === val) {
+        setAPIInfo(originalAPIInfo);
+      } else {
+        const filteredInfo = originalAPIInfo.filter(
+          (obj) => obj.name[0] === val
+        );
+        setAPIInfo(filteredInfo);
+      }
+    } else {
+      // BRANDS
+      if (VAL_ALL === val) {
+        setBrands(orignalBrands);
+      } else {
+        const filteredInfo = orignalBrands.filter((obj) => obj.name[0] === val);
+        setBrands(filteredInfo);
+      }
+     
+    }
   };
 
-  const showAllCards = () => {
-    // setAPIInfo([]);
-    // setBrands([]);
-    // setDefaultValues();
-  }
-
-  const setDefaultValues = () => {
+  const isMounted = useRef(true);
+  useEffect(() => {
     if (apiInfo.length === 0) {
       getAPIInfo()
         .then((res) => {
           // getFirstCharacters(res.data)
           setAPIInfo(res.data);
+          setOriginalAPIInfo(res.data);
         })
         .catch((err) => console.log(err));
     }
@@ -56,16 +69,12 @@ const Home = () => {
     if (brands.length === 0) {
       getBrands()
         .then((res) => {
-          log(res.data);
+          // log(res.data);
           setBrands(res.data);
+          setOrignalBrands(res.data);
         })
         .catch((err) => console.log(err));
     }
-  };
-
-  const isMounted = useRef(true);
-  useEffect(() => {
-    setDefaultValues();
 
     if (dropDownVal === "") {
       // set initial drop down value to Products
@@ -78,22 +87,22 @@ const Home = () => {
       isMounted.current = false;
     };
   }, [dropDownVal, brands, apiInfo]);
+
   return (
     <Fragment>
       <Header />
 
       <Dropdown
-        handleDropDownChange={handleDropDownChange}
         dropdownOptions={getHomePageDropDownValues()}
+        handleDropDownChange={handleDropDownChange}
       />
 
       <ButtonGroupComponent
         showSpecificCards={showSpecificCards}
-        showAllCards={showAllCards}
         buttonValues={
           dropDownVal === PRODUCT_DROP_DOWN_VAL
-            ? getFirstCharacters(apiInfo)
-            : getFirstCharacters(brands)
+            ? getFirstCharacters(originalAPIInfo)
+            : getFirstCharacters(orignalBrands)
         }
       />
 

@@ -1,16 +1,22 @@
-.dropdown__container{
+.dropdown__container {
   margin: 15px;
-
+  /* z-index: -1; */
+  position: relative;
 }
 
-.dropdown__menu-wrapper{
-  display: inline; 
-  justify-content: flex-start
-
+.dropdown__menu-wrapper {
+  display: inline;
+  justify-content: flex-start;
 }
 
 @media screen and (max-width: 315px) {
-  .dropdown__container{
+  .dropdown__container {
     margin: 25px;
+  }
+}
+
+@media screen and (max-width: 305px) {
+  .dropdown__container {
+    margin: 10px 20px 10px 5px;
   }
 }
