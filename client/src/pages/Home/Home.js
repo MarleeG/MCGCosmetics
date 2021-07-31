@@ -4,17 +4,21 @@ import HomePageCard from "../../components/HomePageCard/Card";
 import Dropdown from "../../components/ShopByDropDown/DropDown";
 import ButtonGroupComponent from "../../components/ButtonGroup/ButtonGroup";
 import { getAPIInfo, getBrands } from "../../API/data";
-import {
-  getHomePageDropDownValues,
-  getFirstCharacters
-} from "../../general/data";
+// import {
+//   getHomePageDropDownValues,
+//   getFirstCharacters
+// } from "../../general/data";
+
+// import {getHomePageDropDownValues, getFirstCharacters} from '../../util/data'
+import UTIL from '../../util/data'
+
 
 import "./Home.css";
 
 const { log } = console;
 
-const PRODUCT_DROP_DOWN_VAL = getHomePageDropDownValues()[0].value;
-const BRAND_DROP_DOWN_VAL = getHomePageDropDownValues()[1].value;
+const PRODUCT_DROP_DOWN_VAL = UTIL.getHomePageDropDownValues()[0].value;
+const BRAND_DROP_DOWN_VAL = UTIL.getHomePageDropDownValues()[1].value;
 
 const Home = () => {
   const [apiInfo, setAPIInfo] = useState([]);
@@ -76,7 +80,7 @@ const Home = () => {
 
     if (dropDownVal === "") {
       // set initial drop down value to Products
-      setDropDownVal(getHomePageDropDownValues()[0].value);
+      setDropDownVal(UTIL.getHomePageDropDownValues()[0].value);
     }
 
     // log(`dropDownVal: ${dropDownVal}`);
@@ -91,7 +95,7 @@ const Home = () => {
       <Header />
 
       <Dropdown
-        dropdownOptions={getHomePageDropDownValues()}
+        dropdownOptions={UTIL.getHomePageDropDownValues()}
         handleDropDownChange={handleDropDownChange}
       />
 
@@ -99,8 +103,8 @@ const Home = () => {
         showSpecificCards={showSpecificCards}
         buttonValues={
           dropDownVal === PRODUCT_DROP_DOWN_VAL
-            ? getFirstCharacters(originalAPIInfo)
-            : getFirstCharacters(orignalBrands)
+            ? UTIL.getFirstCharacters(originalAPIInfo)
+            : UTIL.getFirstCharacters(orignalBrands)
         }
       />
 
