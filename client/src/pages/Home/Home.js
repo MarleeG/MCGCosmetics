@@ -6,7 +6,7 @@ import ButtonGroupComponent from "../../components/ButtonGroup/ButtonGroup";
 import { getAPIInfo, getBrands } from "../../API/data";
 import {
   getHomePageDropDownValues,
-  getFirstCharacters,
+  getFirstCharacters
 } from "../../general/data";
 
 import "./Home.css";
@@ -58,7 +58,6 @@ const Home = () => {
     if (apiInfo.length === 0) {
       getAPIInfo()
         .then((res) => {
-          // getFirstCharacters(res.data)
           setAPIInfo(res.data);
           setOriginalAPIInfo(res.data);
         })
