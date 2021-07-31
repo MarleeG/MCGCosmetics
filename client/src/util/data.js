@@ -1,7 +1,8 @@
-const { v4: uuidv4 } = require("uuid");
-
+import { v4 as uuidv4 } from 'uuid';
+// const { v4: uuidv4 } = require('uuid');
 const { log } = console;
-const data = {
+
+export default {
   getHomePageDropDownValues: () => {
     const dropdownOptions = [
       {
@@ -25,7 +26,9 @@ const data = {
     const uniqueArr = Array.from(new Set(newArr)).sort((a, b) => a + b);
 
     return [...uniqueArr, 'ALL'];
-  },
+  }
 };
 
-module.exports = data;
+// export default data;
+
+// module.exports = data;
