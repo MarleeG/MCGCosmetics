@@ -1,6 +1,5 @@
 .product-card__container {
   /* border: 1px solid orange; */
-
   /* background-color: #f9f8f8; */
   background-color: #F8F9FA;
   width: 215px;
@@ -8,11 +7,19 @@
   border-radius: 5px;
   margin: 15px;
   font-size: 25px;
-  z-index: -1;
 
   -webkit-box-shadow: 10px 10px 15px -19px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 15px -19px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 15px -19px rgba(0, 0, 0, 0.75);
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  text-decoration: none;
+  color: black;
 }
 
 .product-card__icon {

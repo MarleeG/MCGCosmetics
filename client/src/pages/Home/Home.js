@@ -50,7 +50,6 @@ const Home = () => {
         const filteredInfo = orignalBrands.filter((obj) => obj.name[0] === val);
         setBrands(filteredInfo);
       }
-     
     }
   };
 
@@ -111,10 +110,15 @@ const Home = () => {
           dropDownVal === PRODUCT_DROP_DOWN_VAL &&
           dropDownVal !== "" &&
           apiInfo.map((info) => {
-            const { name, id, img_src } = info;
+            const { name, id, img_src, api_product_type_value } = info;
 
             const CARD = (
-              <HomePageCard key={id}>
+              <HomePageCard
+                key={id}
+                rootPath="/product"
+                // name={name}
+                path={`/product/${api_product_type_value}`}
+              >
                 <img src={img_src} alt={name} className="product-card__icon" />{" "}
                 {name}
               </HomePageCard>
@@ -127,9 +131,18 @@ const Home = () => {
           dropDownVal === BRAND_DROP_DOWN_VAL &&
           dropDownVal !== "" &&
           brands.map((brand) => {
-            const { id, name } = brand;
+            const { id, name, api_brand_value } = brand;
 
-            const CARD = <HomePageCard key={id}>{name}</HomePageCard>;
+            const CARD = (
+              <HomePageCard
+                key={id}
+                rootPath="/brand"
+                path={`/brand/${api_brand_value}`}
+                // name={name}
+              >
+                {name}
+              </HomePageCard>
+            );
 
             return CARD;
           })}
