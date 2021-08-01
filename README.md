@@ -15,6 +15,7 @@ This app is under construction.
 * [React](https://reactjs.org/)
 * [React-Bootstrap](https://react-bootstrap.github.io/)
 * [React-Select](https://react-select.com/home)
+* [Sass](https://sass-lang.com/documentation)
 
 ## Deployed App
 * [MCGCosmetics-App](https://mcg-cosmetics.herokuapp.com) - App

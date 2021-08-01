@@ -24,6 +24,16 @@
   position: relative;
 }
 
+.header__container a{
+  text-decoration: none;
+  color: black
+}
+
+.header__container a:hover{
+  text-decoration: none;
+  color: black
+}
+
 .header__container div h1 {
   /* border: 2px solid blue; */
   width: 100%;
@@ -31,6 +41,7 @@
   font-size: 115px;
   height: 80%;
 }
+
 
 .header__container div p {
   /* border: 2px solid blue; */
@@ -43,6 +54,8 @@
   /* border: 2px solid black; */
   height: 100%;
 }
+
+
 
 @media screen and (max-width: 852px) {
   .header__container div h1 {

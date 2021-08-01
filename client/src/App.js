@@ -7,9 +7,8 @@ import {
   // useRouteMatch,
   // useParams,
 } from "react-router-dom";
-import LoadingSpinner from './UIElements/LoadingSpinner'
+import LoadingSpinner from "./UIElements/LoadingSpinner";
 import "./App.css";
-
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const ProductLanding = lazy(() =>
@@ -18,31 +17,34 @@ const ProductLanding = lazy(() =>
 const BrandLanding = lazy(() => import("./pages/BrandLanding/BrandLanding"));
 
 const App = () => {
-
   return (
     <Router>
       <div className="App">
         <Switch>
           <Route path="/" exact>
             {/* <About /> */}
-            <Suspense fallback={LoadingSpinner}>
+            <Suspense fallback={<LoadingSpinner />}>
               <Home />
             </Suspense>
           </Route>
 
           <Route path="/product/:productName" exact>
-            <Suspense fallback={LoadingSpinner}>
+            <Suspense fallback={<LoadingSpinner />}>
               <ProductLanding />
             </Suspense>
           </Route>
 
           <Route path="/brand/:brandName" exact>
-            <Suspense fallback={LoadingSpinner}>
+            <Suspense fallback={<LoadingSpinner />}>
               <BrandLanding />
             </Suspense>
           </Route>
 
-          <Route path="/"></Route>
+          <Route>
+            <Suspense fallback={<LoadingSpinner />}>
+              <Home />
+            </Suspense>
+          </Route>
         </Switch>
       </div>
     </Router>

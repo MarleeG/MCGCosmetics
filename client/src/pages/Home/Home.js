@@ -92,7 +92,7 @@ const Home = () => {
 
   return (
     <Fragment>
-      <Header />
+      <Header style={{}}/>
 
       <Dropdown
         dropdownOptions={UTIL.getHomePageDropDownValues()}
