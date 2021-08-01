@@ -1,8 +1,9 @@
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
+import { randomColor } from "randomcolor";
 // const { v4: uuidv4 } = require('uuid');
 const { log } = console;
 
-export default {
+const data = {
   getHomePageDropDownValues: () => {
     const dropdownOptions = [
       {
@@ -25,10 +26,23 @@ export default {
 
     const uniqueArr = Array.from(new Set(newArr)).sort((a, b) => a + b);
 
-    return [...uniqueArr, 'ALL'];
-  }
+    return [...uniqueArr, "ALL"];
+  },
+  ranColor: () => {
+    const hues = ['pink', 'purple', 'blue'];
+    const randomHue = hues[Math.floor(Math.random() * hues.length)];
+
+     const color = randomColor({
+      luminosity: "light",
+      format: "rgba",
+      alpha: 0.5, // e.g. 'rgba(9, 1, 107, 0.5)',
+      hue: randomHue
+    });
+
+    return color;
+  },
 };
 
-// export default data;
+export default data;
 
 // module.exports = data;

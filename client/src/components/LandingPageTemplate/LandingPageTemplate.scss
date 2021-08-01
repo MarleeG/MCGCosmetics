@@ -1,0 +1,41 @@
+@import "~bootstrap/scss/bootstrap";
+
+// Variables
+$dark-blue: #204056;
+$light-blue: #59a1c9;
+$aqua: #39d1b4;
+$salmon: #f65a5b;
+$gray: #f3f3f3;
+
+
+/* Reset */
+*:before, *:after { content: ''; }
+hr {
+  border: 0;
+  // margin: 1.35em auto;
+  max-width: 100%;
+  background-position: 50%;
+  box-sizing: border-box;
+}
+
+.landing-page__header {
+  font-size: 25px;
+}
+
+
+.vertical-lines {
+  height: 5px;
+  $color: #eaeaea;
+  // $color: blue;
+
+  color: $color;
+  background-image: linear-gradient(
+    90deg,
+    currentColor,
+    currentColor 33.33%,
+    transparent 33.33%,
+    transparent 100%);
+  background-size: 3px 100%;
+  width: 97%;
+}
+
