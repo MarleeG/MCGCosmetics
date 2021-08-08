@@ -8,13 +8,9 @@ import "./ProductLanding.css";
 const ProductLanding = (props) => {
   const { productName } = useParams();
 
-  const updateHeader = (str) => {
-    const updatedStr = str.replace("_", " ");
-    return updatedStr;
-  }
-
   return (
-    <LandingPageTemplate header={updateHeader(productName.toUpperCase())}>
+    // updateHeader(productName.toUpperCase()
+    <LandingPageTemplate header={productName.toUpperCase()}>
       <Row style={{ margin: "15px" }}>
         <Col>
           <div>Content</div>

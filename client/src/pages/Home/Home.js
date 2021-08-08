@@ -120,7 +120,8 @@ const Home = () => {
                 key={id}
                 rootPath="/product"
                 // name={name}
-                path={`/product/${api_product_type_value}`}
+                // api_product_type_value
+                path={`/product/${name.toLowerCase()}`}
               >
                 <img src={img_src} alt={name} className="product-card__icon" />{" "}
                 {name}
