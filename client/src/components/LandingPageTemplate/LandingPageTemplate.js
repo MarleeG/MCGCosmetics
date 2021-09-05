@@ -13,7 +13,11 @@ const LandingPageTemplate = (props) => {
 
   return (
     // border: "3px dotted orange",
-    <Container style={{ padding: "0px" }} fluid>
+    <Container
+      style={{ padding: "0px", display: 'relative' }}
+      className="landing-page-template__container"
+      fluid
+    >
       <Row>
         <Col>
           <Header style={HeaderStyles} />
@@ -21,23 +25,24 @@ const LandingPageTemplate = (props) => {
       </Row>
 
       <hr className="vertical-lines"/>
-      <Row
-        className="landing-page__content"
-        style={{
-          margin: "0 15px",
-          // backgroundColor: `${UTIL.ranColor()}`,
-          borderRadius: "5px",
-          backgroundImage: `linear-gradient(to right, ${UTIL.ranColor()} , ${UTIL.ranColor()})`,
-        }}
-      >
-        <Col lg={true}>
+      <Row className="landing-page__content">
+        <Col
+          lg={12}
+          className="landing-page__header-col"
+          style={{
+            borderRadius: "5px",
+            backgroundImage: `linear-gradient(to right, ${UTIL.ranColor()} , ${UTIL.ranColor()})`,
+          }}
+        >
           <h2 className="google-font-philosopher landing-page__header">
             {header}
           </h2>
         </Col>
-      </Row>
 
-      {props.children}
+        <Col lg={12} className="landing-page__children-col">
+          {props.children}
+        </Col>
+      </Row>
     </Container>
   );
 };
